@@ -2,8 +2,8 @@
  * Created by zwei76 on 16/9/20.
  * lite EJS template engine for browser
  */
-function liteEJS(text,data){
-  if(!text||!data){
+function liteEJS(template,data){
+  if(!template||!data){
     console.log('模板引擎缺少参数，退出！');
     return;
   }
@@ -12,12 +12,12 @@ function liteEJS(text,data){
   var codeList = [];
   var result;
   var startIndex = 0;
-  while ((result = rule1.exec(text))!==null){
-    wordList.push(text.slice(startIndex,result.index));
+  while ((result = rule1.exec(template))!==null){
+    wordList.push(template.slice(startIndex,result.index));
     startIndex = result.index+result[0].length;
     codeList.push(result[1]);
   }
-  wordList.push(text.slice(startIndex,text.length));
+  wordList.push(template.slice(startIndex,template.length));
   codeList.push('');
   // console.log(wordList);
   // console.log(codeList);

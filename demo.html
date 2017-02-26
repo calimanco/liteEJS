@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>demo</title>
+</head>
+
+<body>
+	<div>
+		<h1>DEMO</h1>
+		<ul id="needText"></ul>
+	</div>
+</body>
+<script src="src/liteEJS.js"></script>
+<script type="text/javascript">
+	var json = {
+		data: [{
+				text: 'fitst'
+			},
+			{
+				text: 'second'
+			},
+			{
+				text: 'third'
+			}
+		]
+	}
+	var template = '<% for(var i = 0;i<data.length;i++){%><li><%=data[i].text%></li><%}%>'
+	document.getElementById('needText').innerHTML = liteEJS(template,json.data);
+</script>
+
+</html>
